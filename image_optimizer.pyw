@@ -14,7 +14,7 @@ from PyQt6.QtWidgets import (
     QApplication, QWidget, QVBoxLayout, QLabel, QPushButton, QFileDialog,
     QHBoxLayout, QMessageBox, QProgressBar, QSpinBox, QCheckBox, QGroupBox,
     QSlider, QListWidget, QListWidgetItem, QDialog, QDialogButtonBox,
-    QTableWidget, QTableWidgetItem, QHeaderView
+    QTableWidget, QTableWidgetItem, QHeaderView, QSizePolicy
 )
 from PyQt6.QtCore import QThread, pyqtSignal, Qt
 from PyQt6.QtGui import QFont, QPalette, QColor, QIcon
@@ -498,9 +498,14 @@ class App(QWidget):
         content_layout.setSpacing(16)
         layout.addLayout(content_layout)
 
-        left_column = QVBoxLayout()
+        left_column_container = QWidget()
+        left_column_container.setMaximumWidth(460)
+        left_column_container.setSizePolicy(
+            QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding
+        )
+        left_column = QVBoxLayout(left_column_container)
         left_column.setSpacing(12)
-        content_layout.addLayout(left_column, 3)
+        content_layout.addWidget(left_column_container)
 
         source_group = QGroupBox("Source")
         source_layout = QVBoxLayout()
@@ -617,10 +622,13 @@ class App(QWidget):
         left_column.addLayout(action_layout)
 
         history_group = QGroupBox("Recent Runs")
+        history_group.setSizePolicy(
+            QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred
+        )
         history_layout = QVBoxLayout()
         history_layout.setSpacing(8)
         history_group.setLayout(history_layout)
-        content_layout.addWidget(history_group, 2)
+        content_layout.addWidget(history_group, 1)
 
         self.history_list = QListWidget()
         self.history_list.itemActivated.connect(
