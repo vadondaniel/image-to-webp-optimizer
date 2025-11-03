@@ -11,7 +11,7 @@ Although it was designed with comic and manga archives in mind, it can also be u
 ## Features
 
 - Batch convert a single folder at a time, or enable Library Mode to handle each subfolder individually and output `.webp`.
-- Adjustable quality slider that feeds directly into [`cwebp`](https://developers.google.com/speed/webp/docs/cwebp) so you can trade color fidelity for size where it makes sense.
+- Adjustable quality slider that feeds directly into [`cwebp`](https://developers.google.com/speed/webp/download) so you can trade color fidelity for size where it makes sense.
 - Optional skip for files that are already WebP to avoid double compression.
 - Choice between keeping optimized copies alongside originals or replacing the originals in-place.
 - Automatic re-packing into `.cbz` (comic book archive) or `.zip` once conversion finishes.
@@ -21,7 +21,7 @@ Although it was designed with comic and manga archives in mind, it can also be u
 
 - Python 3.10+ (tested with CPython).
 - Dependencies listed in `requirements.txt` (currently PyQt6 for the GUI).
-- A [`cwebp`](https://developers.google.com/speed/webp/docs/cwebp) encoder in your `PATH` or in the project directory. A Windows build (`cwebp.exe`) is bundled here; on macOS/Linux install `libwebp` from your package manager.
+- A [`cwebp`](https://developers.google.com/speed/webp/download) encoder in your `PATH` or in the project directory. A Windows build (`cwebp.exe`) is bundled here; on macOS/Linux install `libwebp` from your package manager.
 
 ## Getting Started
 
@@ -53,4 +53,4 @@ When you keep archives, the tool writes them next to the original folders (e.g.,
 - You can repurpose the tool for photo albums, documentation scans, or any folder that holds PNG/JPEG images directly (the app processes one folder level at a time).
 - Run histories live in `image_optimizer.history.json`. Double-click entries in the UI to reuse the same folders and settings.
 - Windows users can drop `image_optimizer.pyw` onto a Python launcher or pin a shortcut; the `.pyw` extension keeps the console hidden.
-- If you see "`'cwebp' executable not found`", install `libwebp` or copy the [`cwebp`](https://developers.google.com/speed/webp/docs/cwebp) encoder binary next to `image_optimizer.pyw`.
+- If you see "`'cwebp' executable not found`", install `libwebp` or copy the [`cwebp`](https://developers.google.com/speed/webp/download) encoder binary next to `image_optimizer.pyw`.
